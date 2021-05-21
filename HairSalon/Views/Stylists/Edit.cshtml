@@ -4,16 +4,18 @@
 
 @model HairSalon.Models.Stylist
 
-<h2>Edit: @Html.DisplayFor(model => model.SomeProperty)</h2>
+<h2>Edit: @Html.DisplayFor(model => model.Name)</h2>
 <hr />
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.StylistId)
 
-  @Html.LabelFor(model => model.SomeProperty, new {@class="form-label"})
-  @Html.EditorFor(model => model.SomeProperty, new {@class = "form-control", type="text", id="some-property"})
+  @Html.LabelFor(model => model.Name, new {@class="form-label"})
+  @Html.EditorFor(model => model.Name, new {@class = "form-control", type="text", id="name"})
+  @Html.LabelFor("Service Provided", new {@class="form-label"})
+  @Html.EditorFor(model => model.ServiceProvided, new {@class="form-control", type="text", id="service-provided"})
 
-    <input type="submit" value="Save Changes" class="btn btn-outline-warning" />
+  <input type="submit" value="Save Changes" class="btn btn-outline-warning" />
 }
 <p>@Html.ActionLink("Back to list", "Index")</p>
