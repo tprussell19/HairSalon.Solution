@@ -4,9 +4,10 @@
 
 @model HairSalon.Models.Client
 
-<h2>@Html.DisplayFor(model => model.SomeProperty)</h2>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
 <hr />
-<h5>@Html.DisplayNameFor(model => model.SomeOtherProperty): @Html.DisplayFor(model => model.SomeOtherProperty)</h5>
+<h5>Service Requested: @Html.DisplayFor(model => model.ServiceRequested)</h5>
+<h5>Stylist: @Html.DisplayFor(model => model.Stylist.Name)</h5>
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit client", "Edit", new { id = Model.ClientId })</p>
