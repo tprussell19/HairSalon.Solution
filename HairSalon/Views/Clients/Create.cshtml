@@ -5,16 +5,17 @@
 @model HairSalon.Models.Client
 
 <h1 class="jumbotron">Add a new Client</h1>
+<div class="text">
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(model => model.Name, new {@class="form-label"})
+    @Html.TextBoxFor(model => model.Name, new {@class = "form-control", type="text", id="name"})
+    @Html.LabelFor(model => model.ServiceRequested, new {@class="form-label"})
+    @Html.TextBoxFor(model => model.ServiceRequested, new {@class="form-control", type="text", id="service-requested"})
+    @Html.LabelFor(model => model.Stylist, new {@class="form-label"})
+    <div>@Html.DropDownList("StylistId")</div>
 
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(model => model.Name, new {@class="form-label"})
-  @Html.TextBoxFor(model => model.Name, new {@class = "form-control", type="text", id="name"})
-  @Html.LabelFor(model => model.ServiceRequested, new {@class="form-label"})
-  @Html.TextBoxFor(model => model.ServiceRequested, new {@class="form-control", type="text", id="service-requested"})
-  @Html.LabelFor(model => model.Stylist, new {@class="form-label"})
-  @Html.DropDownList("StylistId")
-
-  <input type="submit" value="Add Client" class="btn btn-outline-primary" />
-}
+    <div><input type="submit" value="Add Client" class="btn btn-outline-primary" /></div>
+  }
+</div>
 <p>@Html.ActionLink("Back to All Clients", "Index")</p>

@@ -4,18 +4,19 @@
 
 @model HairSalon.Models.Stylist
 
-<h2>Edit: @Html.DisplayFor(model => model.Name)</h2>
-<hr />
+<h1 class="jumbotron">Edit: @Html.DisplayFor(model => model.Name)</h1>
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.StylistId)
+<div class="text">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.StylistId)
 
-  @Html.LabelFor(model => model.Name, new {@class="form-label"})
-  @Html.EditorFor(model => model.Name, new {@class = "form-control", type="text", id="name"})
-  @Html.LabelFor(model => model.ServiceProvided, new {@class="form-label"})
-  @Html.EditorFor(model => model.ServiceProvided, new {@class="form-control", type="text", id="service-provided"})
+    @Html.LabelFor(model => model.Name, new {@class="form-label"})
+    @Html.EditorFor(model => model.Name, new {@class = "form-control", type="text", id="name"})
+    @Html.LabelFor(model => model.ServiceProvided, new {@class="form-label"})
+    @Html.EditorFor(model => model.ServiceProvided, new {@class="form-control", type="text", id="service-provided"})
 
-  <input type="submit" value="Save Changes" class="btn btn-outline-warning" />
-}
-<p>@Html.ActionLink("Back to list", "Index")</p>
+    <input type="submit" value="Save Changes" class="btn btn-outline-warning" />
+  }
+  <p>@Html.ActionLink("Back to list", "Index")</p>
+</div>

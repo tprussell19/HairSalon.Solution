@@ -6,27 +6,30 @@
 @model HairSalon.Models.Stylist
 
 <h1 class="jumbotron">Stylist Details:</h1>
-<h3>@Html.DisplayFor(model => model.Name) | @Html.DisplayFor(model => model.ServiceProvided)</h3>
+
+<h3 class="text">@Html.DisplayFor(model => model.Name) | @Html.DisplayFor(model => model.ServiceProvided)</h3>
 <hr />
 
-<h5>Clients:</h5>
-@if (ViewBag.Clients.Count == 0)
-{
-  <p>@Html.DisplayFor(model => model.Name) does not have any clients yet. @Html.ActionLink("Add a client now?","Create","Clients")</p>
-}
-else
-{
-<ul>
-  @foreach (Client client in ViewBag.Clients)
+<div class="text">
+  <h5>Clients:</h5>
+  @if (ViewBag.Clients.Count == 0)
   {
-    if (client.StylistId == Model.StylistId)
-    {
-      <li>@Html.ActionLink($"{client.Name}", "Details", "Clients", new { id = client.ClientId})</li>
-    }
+    <p>@Html.DisplayFor(model => model.Name) does not have any clients yet. @Html.ActionLink("Add a client now?","Create","Clients")</p>
   }
-</ul>
-}
+  else
+  {
+  <ul>
+    @foreach (Client client in ViewBag.Clients)
+    {
+      if (client.StylistId == Model.StylistId)
+      {
+        <li>@Html.ActionLink($"{client.Name}", "Details", "Clients", new { id = client.ClientId})</li>
+      }
+    }
+  </ul>
+  }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit stylist", "Edit", new { id = Model.StylistId })</p>
-<p>@Html.ActionLink("Delete stylist", "Delete", new { id = Model.StylistId })</p>
+  <p>@Html.ActionLink("Back to list", "Index")</p>
+  <p>@Html.ActionLink("Edit stylist", "Edit", new { id = Model.StylistId })</p>
+  <p>@Html.ActionLink("Delete stylist", "Delete", new { id = Model.StylistId })</p>
+</div>

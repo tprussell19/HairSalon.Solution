@@ -4,20 +4,21 @@
 
 @model HairSalon.Models.Client
 
-<h2>Edit: @Html.DisplayFor(model => model.Name)</h2>
-<hr />
+<h1 class="jumbotron">Edit: @Html.DisplayFor(model => model.Name)</h1>
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.ClientId)
+<div class="text">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.ClientId)
 
-  @Html.LabelFor(model => model.Name, new {@class="form-label"})
-  @Html.EditorFor(model => model.Name, new {@class = "form-control", type="text", id="name"})
-  @Html.LabelFor(model => model.ServiceRequested, new {@class="form-label"})
-  @Html.EditorFor(model => model.ServiceRequested, new {@class="form-control", type="text", id="service-requested"})
-  @Html.LabelFor(model => model.Stylist, new {@class="form-label"})
-  @Html.DropDownList("StylistId")
+    @Html.LabelFor(model => model.Name, new {@class="form-label"})
+    @Html.EditorFor(model => model.Name, new {@class = "form-control", type="text", id="name"})
+    @Html.LabelFor(model => model.ServiceRequested, new {@class="form-label"})
+    @Html.EditorFor(model => model.ServiceRequested, new {@class="form-control", type="text", id="service-requested"})
+    @Html.LabelFor(model => model.Stylist, new {@class="form-label"})
+    @Html.DropDownList("StylistId")
 
-  <input type="submit" value="Save Changes" class="btn btn-outline-warning" />
-}
-<p>@Html.ActionLink("Back to List", "Index")</p>
+    <input type="submit" value="Save Changes" class="btn btn-outline-warning" />
+  }
+  <p>@Html.ActionLink("Back to List", "Index")</p>
+</div>
